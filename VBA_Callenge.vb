@@ -70,6 +70,11 @@ For i = 2 To lastrow
             End If
     ws.Range("l" & output_row).Value = Total_Volume
     ws.Range("K" & output_row).Value = percent_change
+      If percent_change < 0 Then
+        ws.Range("K" & output_row).Interior.ColorIndex = 3
+        ElseIf percent_change > 0 Then
+        ws.Range("K" & output_row).Interior.ColorIndex = 4
+        End If
         
         output_row = output_row + 1
         year_open = ws.Cells(i + 1, 3).Value
